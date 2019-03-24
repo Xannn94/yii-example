@@ -12,9 +12,12 @@ use common\models\LoginForm;
  */
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
+    public function init()
+    {
+        parent::init();
+        $this->layout = 'app';
+    }
+
     public function behaviors()
     {
         return [
@@ -41,9 +44,6 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
@@ -79,7 +79,7 @@ class SiteController extends Controller
             return $this->goBack();
         } else {
             $model->password = '';
-
+            $this->layout = 'main';
             return $this->render('login', [
                 'model' => $model,
             ]);

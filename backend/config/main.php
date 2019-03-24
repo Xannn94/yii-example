@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'Khan Production',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -37,14 +38,26 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+            'normalizer' => [
+                'class' => 'yii\web\UrlNormalizer',
+                'action' => \yii\web\UrlNormalizer::ACTION_REDIRECT_PERMANENT,
             ],
-        ],
-        */
+            'rules' => [
+                '<controller:(site|widget)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
+                '<controller:(site)>/<id:\d+>' => '<controller>/view',
+                '<controller:(site|news)>/<action>/<id:\d+>' => '<controller>/<action>',
+                '<controller:(site|news|language)>/<action>' => '<controller>/<action>',
+            ],
+        ]
+    ],
+    'aliases' => [
+        '@images' => '/uploads/images'
+    ],
+    'as beforeRequest' => [
+        'class' => 'backend\components\CheckIfLoggedIn'
     ],
     'params' => $params,
 ];

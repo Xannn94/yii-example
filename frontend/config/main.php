@@ -36,14 +36,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'normalizer' => [
+                'class' => 'yii\web\UrlNormalizer',
+                'action' => \yii\web\UrlNormalizer::ACTION_REDIRECT_PERMANENT,
+            ],
             'rules' => [
+                '<controller:(site)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
+                '<controller:(site)>/<id:\d+>' => '<controller>/view',
+                '<controller:(site)>/<action>' => '<controller>/<action>',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
