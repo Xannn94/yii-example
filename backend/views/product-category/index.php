@@ -1,20 +1,14 @@
 <?php
-/* @var $this yii\web\View */
-/* @var $model common\models\News */
-/* @var $pages array */
-/* @var $rootTitle string */
-/* @var $rootId int */
-/* @var $createUrl string */
-/* @var $canCreate bool */
 
 use backend\widgets\AdminNested;
 use backend\assets\ICheckAssets;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = Yii::t('backend/modules/menu/main', 'list_root_title', ['title' => $rootTitle]);
+/* @var $query \yii\db\ActiveQuery */
 
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend/modules/menu/main', 'title'), 'url' => ['index']];
+$this->title = Yii::t('backend/modules/product-category/main', 'title');
+
 $this->params['breadcrumbs'][] = $this->title;
 
 ICheckAssets::register($this);
@@ -22,9 +16,7 @@ ICheckAssets::register($this);
 
 <div class="card card-primary">
     <div class="card-body">
-        <?php if ($canCreate): ?>
-            <p><?= Html::a(Yii::t('backend/modules/menu/main', 'create_button'), [$createUrl], ['class' => 'btn btn-default']) ?></p>
-        <?php endif; ?>
+        <p><?= Html::a(Yii::t('backend/modules/menu/main', 'create_button'), ['create'], ['class' => 'btn btn-default']) ?></p>
 
         <?= AdminNested::widget([
             'type'          => AdminNested::TYPE_WITH_HANDLE,
@@ -38,11 +30,8 @@ ICheckAssets::register($this);
             'pluginOptions' => [
                 'maxDepth' => 10, //максимальное кол-во уровней вложенности
             ],
-            'updateOptions' => [
-                'root' =>  $rootId
-            ],
-            'update'        => Url::toRoute(['menu/update']), //действие по обновлению
-            'delete'        => Url::to(['menu/delete']), //действие по удалению
+            'update'        => Url::to(['product-category/update']), //действие по обновлению
+            'delete'        => Url::to(['product-category/delete']), //действие по удалению
         ]); ?>
 
         <div id="nestable-menu">

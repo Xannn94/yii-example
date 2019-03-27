@@ -38,24 +38,24 @@ return [
             'title' => 'Каталог',
             'icon'  => '',
             'items' => [
-                'category'     => [
+                'product-category'     => [
                     'title' => 'Категории',
-                    'url'   => '/category/index',
+                    'url'   => '/product-category/index',
                     'icon'  => ''
                 ],
-                'product'      => [
+                'product'              => [
                     'title' => 'Продукты',
                     'url'   => '/product/index',
                     'icon'  => ''
                 ],
-                'filter-group' => [
+                'product-filter-group' => [
                     'title' => 'Группы фильтров',
-                    'url'   => '/filter-group/index',
+                    'url'   => '/product-filter-group/index',
                     'icon'  => ''
                 ],
-                'filter'       => [
+                'product-filter'       => [
                     'title' => 'Фильтры',
-                    'url'   => '/filter/index',
+                    'url'   => '/product-filter/index',
                     'icon'  => ''
                 ]
             ]
@@ -66,12 +66,12 @@ return [
             'icon'  => ''
         ]
     ],
-    'uploads' => [
+    'uploads'    => [
         'news' => [
             'image' => [
                 'rules' => '',
-                'type' => 'image',
-                'path' => 'uploads/news/'
+                'type'  => 'image',
+                'path'  => 'uploads/news/'
             ]
         ]
     ]

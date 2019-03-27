@@ -49,7 +49,7 @@ return [
                 '<controller:(site|widget)>/<id:\d+>/<action:(create|update|delete)>' => '<controller>/<action>',
                 '<controller:(site)>/<id:\d+>' => '<controller>/view',
                 '<controller:(site|news)>/<action>/<id:\d+>' => '<controller>/<action>',
-                '<controller:(site|news|language)>/<action>' => '<controller>/<action>',
+                '<controller:(site|news|language|product-category)>/<action>' => '<controller>/<action>',
             ],
         ]
     ],

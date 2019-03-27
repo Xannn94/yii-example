@@ -38,10 +38,7 @@ ICheckAssets::register($this);
             'pluginOptions' => [
                 'maxDepth' => 10, //максимальное кол-во уровней вложенности
             ],
-            'updateOptions' => [
-                'root' =>  $rootId
-            ],
-            'update'        => Url::toRoute(['menu/update']), //действие по обновлению
+            'update'        => Url::toRoute(['menu/update', 'root' =>  $rootId]), //действие по обновлению
             'delete'        => Url::to(['menu/delete']), //действие по удалению
         ]); ?>
 
